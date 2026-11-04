@@ -4,5 +4,18 @@
   "createdAt": "2026-11-04T06:57:05.057Z",
   "filename": "3ef782c6-93fa-4957-b604-127580c21b53.json",
   "geminiStarted": false,
-  "messages": []
+  "messages": [
+    {
+      "id": "9a504682-abf7-4870-b354-b0c9f00c9730",
+      "role": "user",
+      "content": "yaha pr mera project chal jayega angelone se login krke data fetch krke trade instructions dena ka",
+      "status": "pending",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": null,
+      "created_at": "2026-11-04T06:59:18.311Z",
+      "sender": "ios",
+      "is_cancelled": false
+    }
+  ]
 }
