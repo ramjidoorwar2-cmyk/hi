@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Angel One SmartAPI Trading & Signal Engine</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#0a0e17">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <div class="brand-wrapper">
+        <div class="brand-logo">A1</div>
+        <div class="brand-info">
+          <h1>Angel One SmartAPI Algo</h1>
+          <p>Indian Indices & Intraday Technical Engine</p>
+        </div>
+      </div>
+
+      <div class="header-badges">
+        <div id="connectionBadge" class="badge badge-paper">
+          <span class="badge-dot"></span>
+          <span id="connectionText">Simulation / Paper Mode</span>
+        </div>
+        <div id="modeBadge" class="badge">
+          <span>Mode: <strong id="currentModeLabel">Paper Trading</strong></span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btnScanNow" class="btn btn-scan">
+          <span>⚡</span> Scan Now
+        </button>
+        <button id="btnOpenSettings" class="btn btn-secondary">
+          <span>⚙️</span> API Keys
+        </button>
+        <button id="btnOpenStrategy" class="btn btn-secondary">
+          <span>📊</span> Strategy
+        </button>
+      </div>
+    </header>
+
+    <!-- Market Ticker Cards Strip -->
+    <section class="ticker-strip" id="tickerStrip">
+      <!-- Dynamically populated tickers -->
+      <div class="ticker-card active" data-symbol="NIFTY 50">
+        <div class="ticker-top">
+          <span class="ticker-symbol">NIFTY 50</span>
+          <span class="ticker-change up">+0.38%</span>
+        </div>
+        <div class="ticker-price">₹24,350.25</div>
+      </div>
+      <div class="ticker-card" data-symbol="BANK NIFTY">
+        <div class="ticker-top">
+          <span class="ticker-symbol">BANK NIFTY</span>
+          <span class="ticker-change up">+0.45%</span>
+        </div>
+        <div class="ticker-price">₹52,180.50</div>
+      </div>
+      <div class="ticker-card" data-symbol="FINNIFTY">
+        <div class="ticker-top">
+          <span class="ticker-symbol">FINNIFTY</span>
+          <span class="ticker-change up">+0.30%</span>
+        </div>
+        <div class="ticker-price">₹23,450.00</div>
+      </div>
+      <div class="ticker-card" data-symbol="RELIANCE">
+        <div class="ticker-top">
+          <span class="ticker-symbol">RELIANCE</span>
+          <span class="ticker-change up">+0.42%</span>
+        </div>
+        <div class="ticker-price">₹2,980.40</div>
+      </div>
+      <div class="ticker-card" data-symbol="HDFCBANK">
+        <div class="ticker-top">
+          <span class="ticker-symbol">HDFCBANK</span>
+          <span class="ticker-change up">+0.40%</span>
+        </div>
+        <div class="ticker-price">₹1,640.80</div>
+      </div>
+      <div class="ticker-card" data-symbol="TCS">
+        <div class="ticker-top">
+          <span class="ticker-symbol">TCS</span>
+          <span class="ticker-change up">+0.28%</span>
+        </div>
+        <div class="ticker-price">₹3,950.00</div>
+      </div>
+    </section>
+
+    <!-- Performance & Portfolio Stats Bar -->
+    <section class="stats-bar">
+      <div class="stat-box">
+        <div class="stat-label">Trading Capital</div>
+        <div class="stat-val" id="statCapital">₹1,00,000</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Realized PnL</div>
+        <div class="stat-val up" id="statRealizedPnL">₹0.00</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Unrealized PnL</div>
+        <div class="stat-val" id="statUnrealizedPnL">₹0.00</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Win Rate</div>
+        <div class="stat-val" id="statWinRate">0.0%</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Open Positions</div>
+        <div class="stat-val" id="statOpenPositions">0</div>
+      </div>
+    </section>
+
+    <!-- Main Content Split Grid -->
+    <div class="main-grid">
+
+      <!-- Left Column: Trade Instructions Feed -->
+      <div class="column-left">
+        <div class="section-card">
+          <div class="section-head">
+            <h2>
+              <span>🎯</span> Actionable Trade Instructions
+            </h2>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span id="lastScanTime" style="font-size:11px; color:var(--text-muted);">Updated just now</span>
+              <button id="btnClearSignals" class="btn btn-secondary btn-sm">Clear</button>
+            </div>
+          </div>
+
+          <div id="instructionsFeed" class="instructions-list">
+            <!-- Dynamic Instruction Cards Injected Here -->
+          </div>
+        </div>
+
+        <!-- Active Positions Section -->
+        <div class="section-card">
+          <div class="section-head">
+            <h2>
+              <span>💼</span> Active Positions
+            </h2>
+            <span style="font-size:11px; color:var(--text-muted);" id="activePosCount">0 Open</span>
+          </div>
+
+          <div class="table-wrapper">
+            <table id="positionsTable">
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Action</th>
+                  <th>Qty</th>
+                  <th>Entry</th>
+                  <th>LTP</th>
+                  <th>PnL</th>
+                  <th>Target</th>
+                  <th>Stop Loss</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="positionsTableBody">
+                <tr>
+                  <td colspan="9" class="empty-state">
+                    <div class="icon">📈</div>
+                    <div>No open positions. Click "Execute" on any Trade Instruction to open a paper trade.</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Candlestick Chart & Order History -->
+      <div class="column-right">
+
+        <!-- Chart Section -->
+        <div class="section-card">
+          <div class="section-head">
+            <h2>
+              <span>📈</span> <span id="activeChartSymbol">NIFTY 50</span> (5m Candlestick)
+            </h2>
+            <div class="chart-legend">
+              <div class="legend-item"><div class="legend-line" style="background:var(--accent-cyan);"></div> EMA 9</div>
+              <div class="legend-item"><div class="legend-line" style="background:var(--accent-amber);"></div> EMA 21</div>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="priceChart"></canvas>
+          </div>
+
+          <!-- Mini Indicator Panel -->
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-secondary); padding: 4px 6px; background:var(--bg-secondary); border-radius:6px;">
+            <div>RSI (14): <strong id="chartRsiVal" style="color:var(--accent-cyan);">58.4</strong></div>
+            <div>MACD Hist: <strong id="chartMacdVal" style="color:var(--bull-green);">+3.80</strong></div>
+            <div>Trend: <strong id="chartTrendVal" style="color:var(--bull-green);">BULLISH CROSSOVER</strong></div>
+          </div>
+        </div>
+
+        <!-- Completed Trade History -->
+        <div class="section-card">
+          <div class="section-head">
+            <h2>
+              <span>📜</span> Trade History & Audit Log
+            </h2>
+          </div>
+
+          <div class="table-wrapper" style="max-height: 280px; overflow-y:auto;">
+            <table id="historyTable">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Symbol</th>
+                  <th>Type</th>
+                  <th>Entry</th>
+                  <th>Exit</th>
+                  <th>Realized PnL</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <tr>
+                  <td colspan="7" class="empty-state">
+                    <div>No closed trades yet in this session.</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Settings / Angel One Credentials Modal -->
+  <div id="settingsModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3>Angel One SmartAPI Setup</h3>
+        <button class="close-btn" data-close="settingsModal">&times;</button>
+      </div>
+
+      <form id="settingsForm">
+        <div class="form-group">
+          <label>Angel One Client Code (User ID)</label>
+          <input type="text" id="cfgClientCode" class="form-input" placeholder="e.g. S1234567">
+          <div class="form-help">Your Angel One trading account login ID.</div>
+        </div>
+
+        <div class="form-group">
+          <label>SmartAPI Key</label>
+          <input type="password" id="cfgApiKey" class="form-input" placeholder="e.g. 5xX3... (from smartapi portal)">
+          <div class="form-help">Created on <a href="https://smartapi.angelbroking.com" target="_blank" style="color:var(--accent-cyan);">smartapi.angelbroking.com</a></div>
+        </div>
+
+        <div class="form-group">
+          <label>MPIN / Password</label>
+          <input type="password" id="cfgMpin" class="form-input" placeholder="e.g. 4-digit or 6-digit MPIN">
+        </div>
+
+        <div class="form-group">
+          <label>TOTP Secret Key (for Auto-2FA)</label>
+          <input type="password" id="cfgTotpSecret" class="form-input" placeholder="e.g. JBSWY3DPEHPK3PXP">
+          <div class="form-help">The base32 secret key from your Angel One TOTP setup. Enables automated OTP generation without requiring phone SMS.</div>
+        </div>
+
+        <div class="toggle-row">
+          <div>
+            <strong>Paper Trading Mode (Recommended)</strong>
+            <div class="form-help">Simulate signals & virtual orders without real funds.</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="cfgPaperTrading" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:10px; justify-content:flex-end;">
+          <button type="button" id="btnTestCredentials" class="btn btn-secondary">
+            Test Connection
+          </button>
+          <button type="submit" class="btn btn-primary">
+            Save Settings
+          </button>
+        </div>
+
+        <div id="testResultMsg" style="margin-top:12px; font-size:12px; display:none; padding:8px 12px; border-radius:6px;"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Strategy Settings Modal -->
+  <div id="strategyModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3>Technical Strategy Tuning</h3>
+        <button class="close-btn" data-close="strategyModal">&times;</button>
+      </div>
+
+      <form id="strategyForm">
+        <div class="form-group">
+          <label>Fast EMA Period (Default: 9)</label>
+          <input type="number" id="cfgFastEma" class="form-input" value="9" min="3" max="50">
+        </div>
+
+        <div class="form-group">
+          <label>Slow EMA Period (Default: 21)</label>
+          <input type="number" id="cfgSlowEma" class="form-input" value="21" min="10" max="100">
+        </div>
+
+        <div class="form-group">
+          <label>Risk-to-Reward Ratio (Default: 2.0 = 1:2 R:R)</label>
+          <input type="number" id="cfgRiskReward" class="form-input" value="2.0" step="0.5" min="1.0" max="5.0">
+        </div>
+
+        <div class="form-group">
+          <label>Auto-Scan Refresh Interval</label>
+          <select id="cfgScanInterval" class="form-input">
+            <option value="15">Every 15 Seconds (Real-time)</option>
+            <option value="30" selected>Every 30 Seconds</option>
+            <option value="60">Every 1 Minute</option>
+            <option value="0">Manual Scan Only</option>
+          </select>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:10px; justify-content:flex-end;">
+          <button type="submit" class="btn btn-primary">
+            Apply Parameters
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
