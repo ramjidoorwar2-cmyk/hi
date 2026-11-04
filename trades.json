@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T07:10:55.306350",
+  "updated_at": "2026-11-04T07:13:18.530604",
   "active_positions": [],
   "completed_trades": [
     {
@@ -26,6 +26,150 @@
     }
   ],
   "signals_log": [
+    {
+      "id": "TI-TCS-SELL-071318",
+      "timestamp": "2026-11-04 07:13:18",
+      "symbol": "TCS",
+      "action": "SELL",
+      "trade_type": "INTRADAY / MOMENTUM",
+      "entry_price": 3893.87,
+      "stop_loss": 3914.12,
+      "target_1": 3863.49,
+      "target_2": 3853.37,
+      "risk_reward": "1:2.0",
+      "confidence": 85,
+      "timeframe": "5m",
+      "rationale": "Bearish setup: Fast EMA (3907.3) < Slow EMA (3913.5), RSI=42.8 shows bearish pressure, MACD Histogram=-2.60.",
+      "indicators": {
+        "ema_fast": 3907.26,
+        "ema_slow": 3913.48,
+        "rsi": 42.8,
+        "macd_hist": -2.6,
+        "atr": 13.5
+      },
+      "suggested_option": "TCS Intraday Short",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "TI-HDFCBANK-BUY-071318",
+      "timestamp": "2026-11-04 07:13:18",
+      "symbol": "HDFCBANK",
+      "action": "BUY",
+      "trade_type": "INTRADAY / MOMENTUM",
+      "entry_price": 1618.39,
+      "stop_loss": 1607.57,
+      "target_1": 1634.62,
+      "target_2": 1640.03,
+      "risk_reward": "1:2.0",
+      "confidence": 90,
+      "timeframe": "5m",
+      "rationale": "Bullish setup: Fast EMA (1611.9) > Slow EMA (1611.6), RSI=51.1 shows bullish momentum, MACD Histogram=1.09.",
+      "indicators": {
+        "ema_fast": 1611.91,
+        "ema_slow": 1611.56,
+        "rsi": 51.1,
+        "macd_hist": 1.09,
+        "atr": 7.21
+      },
+      "suggested_option": "HDFCBANK Long / Delivery",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "TI-RELIANCE-SELL-071318",
+      "timestamp": "2026-11-04 07:13:18",
+      "symbol": "RELIANCE",
+      "action": "SELL",
+      "trade_type": "INTRADAY / MOMENTUM",
+      "entry_price": 2946.67,
+      "stop_loss": 2964.82,
+      "target_1": 2919.45,
+      "target_2": 2910.37,
+      "risk_reward": "1:2.0",
+      "confidence": 85,
+      "timeframe": "5m",
+      "rationale": "Bearish setup: Fast EMA (2946.9) < Slow EMA (2951.4), RSI=32.4 shows bearish pressure, MACD Histogram=-1.71.",
+      "indicators": {
+        "ema_fast": 2946.91,
+        "ema_slow": 2951.38,
+        "rsi": 32.4,
+        "macd_hist": -1.71,
+        "atr": 12.1
+      },
+      "suggested_option": "RELIANCE Intraday Short",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "TI-FINNIFTY-BUY-071318",
+      "timestamp": "2026-11-04 07:13:18",
+      "symbol": "FINNIFTY",
+      "action": "BUY",
+      "trade_type": "INTRADAY / MOMENTUM",
+      "entry_price": 23068.19,
+      "stop_loss": 22998.99,
+      "target_1": 23171.99,
+      "target_2": 23206.59,
+      "risk_reward": "1:2.0",
+      "confidence": 85,
+      "timeframe": "5m",
+      "rationale": "Bullish setup: Fast EMA (23038.6) > Slow EMA (23015.1), RSI=69.0 shows bullish momentum, MACD Histogram=2.81.",
+      "indicators": {
+        "ema_fast": 23038.6,
+        "ema_slow": 23015.13,
+        "rsi": 69.0,
+        "macd_hist": 2.81,
+        "atr": 24.1
+      },
+      "suggested_option": "23050 CE (Call Option)",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "TI-BANKNIFTY-BUY-071318",
+      "timestamp": "2026-11-04 07:13:18",
+      "symbol": "BANK NIFTY",
+      "action": "BUY",
+      "trade_type": "INTRADAY / MOMENTUM",
+      "entry_price": 51114.85,
+      "stop_loss": 50961.51,
+      "target_1": 51344.86,
+      "target_2": 51421.53,
+      "risk_reward": "1:2.0",
+      "confidence": 85,
+      "timeframe": "5m",
+      "rationale": "Bullish setup: Fast EMA (51071.9) > Slow EMA (51005.5), RSI=67.7 shows bullish momentum, MACD Histogram=20.31.",
+      "indicators": {
+        "ema_fast": 51071.94,
+        "ema_slow": 51005.54,
+        "rsi": 67.7,
+        "macd_hist": 20.31,
+        "atr": 89.34
+      },
+      "suggested_option": "51100 CE (Call Option)",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "TI-NIFTY50-SELL-071318",
+      "timestamp": "2026-11-04 07:13:18",
+      "symbol": "NIFTY 50",
+      "action": "SELL",
+      "trade_type": "INTRADAY / MOMENTUM",
+      "entry_price": 23713.53,
+      "stop_loss": 23784.67,
+      "target_1": 23606.82,
+      "target_2": 23571.25,
+      "risk_reward": "1:2.0",
+      "confidence": 85,
+      "timeframe": "5m",
+      "rationale": "Bearish setup: Fast EMA (23736.0) < Slow EMA (23752.7), RSI=31.2 shows bearish pressure, MACD Histogram=-1.93.",
+      "indicators": {
+        "ema_fast": 23736.02,
+        "ema_slow": 23752.67,
+        "rsi": 31.2,
+        "macd_hist": -1.93,
+        "atr": 22.85
+      },
+      "suggested_option": "23700 PE (Put Option)",
+      "status": "ACTIVE"
+    },
     {
       "id": "TI-TEST-01",
       "timestamp": "2026-11-04 10:00:00",
