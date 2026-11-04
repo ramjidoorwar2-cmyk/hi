@@ -64,6 +64,18 @@
       "created_at": "2026-11-04T07:16:26.487Z",
       "sender": "ios",
       "is_cancelled": false
+    },
+    {
+      "id": "7684f7df-d909-4665-a1fa-20e55f27a1e0",
+      "role": "agent",
+      "content": "हाँ भाई, बिल्कुल! अब से हम पूरी बातचीत सिर्फ **हिन्दी** में ही करेंगे।\n\nमैंने आपके लिए एक डिटेल्ड प्लान तैयार किया है:\n👉 **[hindi_and_next_features_plan.md](file:///home/agent/.gemini/antigravity-cli/brain/33fa8b81-3f73-49bf-a73f-c852ab20367a/hindi_and_next_features_plan.md)**\n\n---\n\n### आपसे 1 ज़रूरी सवाल (आप आगे क्या करना चाहते हैं?):\n1. **Dashboard में हिन्दी सपोर्ट**: क्या वेबसाइट पर हिन्दी/English भाषा बदलने का बटन और ट्रेड निर्देश (Trade Instructions) हिन्दी में दिखाने हैं?\n2. **Telegram / Mobile अलर्ट्स**: क्या नया सिग्नल या टारगेट/स्टॉपलॉस हिट होने पर सीधा आपके फ़ोन पर Telegram मैसेज भेजना है?\n3. **Angel One लाइव क्रेडेंशियल्स**: क्या अपने रियल API Key डालकर लाइव मार्केट टेस्ट करना है?\n4. **कोई और पसंदीदा स्ट्रैटेजी**: जैसे Supertrend, VWAP, या कोई खास इंडिकेटर जोड़ना है?\n\nआप प्लान देखकर बताएं कि आपको इनमें से कौन-सा फीचर सबसे पहले चाहिए, या फिर सीधे **\"Proceed\"** पर क्लिक करें! \n\n*(आप अपनी लाइव ट्रेडिंग वेबसाइट यहाँ देख सकते हैं: [Live Trading Site](https://antigravity.luch.dev/site/83525965-a1ae-4476-9410-1f0f69bfe85c/7c74a98333164ab498ef335c/))*\n\n---\n\n# Hindi Bhasha Communication & Dashboard Localization Plan\n\n## Goal Description\nUser ki demand ke anusaar ab se saari baat-cheet (communication) pure Hindi / Hinglish me ki jayegi. Saath hi, Angel One Trading Dashboard aur Trade Instructions system ko bhi Hindi bhasha me switch karne aur aage ke features implement karne ka plan hai.\n\n---\n\n## Proposed Changes\n\n### 1. Hindi Communication Standard\n- Ab se saari baat-cheet saral aur spasht Hindi me hogi.\n- Technical terms (jaise Stop Loss, Target, LTP, Buy/Sell, Indicators) ko aasan Hindi/Hinglish me explain kiya jayega.\n\n### 2. Dashboard Hindi / English Language Switcher ([`index.html`](file:///home/agent/workspace/index.html), [`app.js`](file:///home/agent/workspace/app.js))\n- **Language Toggle Button** (हिन्दी / English) header me add hoga.\n- Trade Instructions aur Rationale ko shuddh aur saral Hindi me dikhaya jayega:\n  - Udaharan: *\"खरीदें (BUY): EMA 9 ने EMA 21 को ऊपर काटा है। RSI 58 पर तेजी का संकेत दे रहा है। 24350 CE खरीदें।\"*\n- Target Hit aur Stop-Loss notifications Hindi me display honge.\n\n### 3. Voice / Sound Alerts in Hindi (Optional)\n- Naye trade instruction aane par browser me Hindi audio alert ya sound bajega: *\"नया सिग्नल: बैंक निफ्टी खरीदें\"*.\n\n---\n\n## User Review Required\n\n> [!IMPORTANT]\n> **Aapko agla sabse zaroori kaam kya karwana hai?**\n> 1. Dashboard UI me **Hindi Language toggle** aur Hindi trade instructions?\n> 2. **Telegram / WhatsApp Alerts** connect karna (taaki phone par seedha message aaye)?\n> 3. Apne **Real Angel One API credentials** daal kar live market testing karna?\n> 4. Koi specific strategy (jaise Supertrend, VWAP, Price Action) add karwana?\n\n---\n\n## Verification Plan\n- Plan approve hone ke baad language toggle test kiya jayega.\n- Preview link par mobile view me Hindi text layout check kiya jayega.",
+      "status": "completed",
+      "model": "auto",
+      "client_type": "gemini-bridge",
+      "parent_message_id": "79a84a18-5bc9-43a8-bc96-eaf898f665f5",
+      "created_at": "2026-11-04T07:17:13.390Z",
+      "sender": "macOS",
+      "is_cancelled": false
     }
   ]
 }
