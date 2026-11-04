@@ -40,6 +40,18 @@
       "created_at": "2026-11-04T07:03:27.108Z",
       "sender": "ios",
       "is_cancelled": false
+    },
+    {
+      "id": "d527f083-310a-495f-8e96-a52a4a13970b",
+      "role": "agent",
+      "content": "Aapka **Angel One SmartAPI Algo Trading & Signal System** complete implement ho gaya hai aur successfully verify kar diya gaya hai!\n\n### 📱 Live Web Terminal Link\nAap direct apne phone ya browser me project dekhne ke liye ye link open karein:\n👉 **[Open Live Trading Dashboard](https://antigravity.luch.dev/site/83525965-a1ae-4476-9410-1f0f69bfe85c/7c74a98333164ab498ef335c/)**\n\n---\n\n### 🛠️ Kya-kya implement kiya gaya hai:\n\n1. **Angel One Connector ([`angel_client.py`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/angel_client.py))**:\n   - Official `smartapi-python` SDK integrate kiya gaya hai.\n   - **Automated TOTP 2FA**: `pyotp` se auto-generate hota hai (SMS OTP ki zaroorat nahi).\n   - Live LTP, 5m/15m OHLC Candle data fetching, aur order placement.\n   - Built-in simulation fallback taaki bina real funds ke bhi turant test ho sake.\n\n2. **Strategy & Trade Instructions Engine ([`strategy_engine.py`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/strategy_engine.py))**:\n   - **EMA 9/21 Crossover + RSI (14) + MACD Histogram + ATR** indicators.\n   - Har signal par exact actionable trade instruction emit hoti hai:\n     - **Action**: 🟢 BUY (Long/Call) ya 🔴 SELL (Short/Put)\n     - **Entry Price**, **Stop Loss**, **Target 1**, **Target 2** (1:2 Risk-to-Reward)\n     - **Options ATM Recommendation**: Nifty/Bank Nifty ke liye exact Call (`CE`) ya Put (`PE`) strike (jaise `24350 CE` ya `52100 PE`).\n     - **Confidence Score & Rationale**: Logic ka human-readable explanation.\n\n3. **Order & Risk Manager ([`order_manager.py`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/order_manager.py))**:\n   - Default **Paper Trading Mode**: Virtual ₹1,00,000 capital, real-time live PnL tracking, aur auto-exit jab Target ya Stop-Loss hit ho.\n   - Settings toggle se live Angel One order execution enable karne ka option.\n   - Sabhi trades aur signals [`trades.json`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/trades.json) me persist hote hain.\n\n4. **Mobile-Responsive Trading Dashboard ([`index.html`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/index.html), [`style.css`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/style.css), [`app.js`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/app.js))**:\n   - Live Tickers strip (NIFTY 50, BANK NIFTY, FINNIFTY, RELIANCE, HDFCBANK, TCS).\n   - High-contrast Candlestick Chart (HTML5 Canvas) with EMA 9 (Cyan) & EMA 21 (Orange) overlay.\n   - Trade Instructions feed with 1-click execution.\n   - Angel One API credentials setup & test modal.\n\n5. **CLI Runner ([`main.py`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/main.py)) & REST API ([`server.py`](https://github.com/ramjidoorwar2-cmyk/hi/blob/main/server.py))**:\n   - Terminal me live scan run karne ke liye:\n     ```bash\n     python3 main.py scan\n     ```\n   - Auto-monitoring loop run karne ke liye:\n     ```bash\n     python3 main.py bot --interval 15\n     ```\n   - Automated unit tests (`tests/`): All 6 unit tests **PASSED**.\n\nSabhi changes automatically commit aur save ho chuke hain. Aap upar diye gaye link par tap karke live system test kar sakte hain!",
+      "status": "completed",
+      "model": "auto",
+      "client_type": "gemini-bridge",
+      "parent_message_id": "eccffc56-c232-4e10-9a46-b4d2663a9fd1",
+      "created_at": "2026-11-04T07:14:39.954Z",
+      "sender": "macOS",
+      "is_cancelled": false
     }
   ]
 }
