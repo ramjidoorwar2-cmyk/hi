@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-11-04T07:09:37.832909",
+  "updated_at": "2026-11-04T07:10:17.870273",
   "active_positions": [],
   "completed_trades": [
     {
-      "id": "POS-1793776177832",
+      "id": "POS-1793776217869",
       "instruction_id": "TI-TEST-01",
       "symbol": "NIFTY 50",
       "action": "BUY",
       "quantity": 25,
       "entry_price": 24000.0,
-      "current_price": 24163.37,
+      "current_price": 24192.48,
       "stop_loss": 23950.0,
       "target_1": 24100.0,
       "target_2": 24200.0,
       "risk_reward": "1:2",
-      "entry_time": "2026-11-04 07:09:37",
+      "entry_time": "2026-11-04 07:10:17",
       "mode": "PAPER_TRADING",
       "suggested_option": "24000 CE",
-      "unrealized_pnl": 4084.25,
+      "unrealized_pnl": 4812.0,
       "status": "CLOSED",
-      "exit_price": 24163.37,
-      "exit_time": "2026-11-04 07:09:37",
+      "exit_price": 24192.48,
+      "exit_time": "2026-11-04 07:10:17",
       "exit_reason": "TARGET_1_HIT",
-      "realized_pnl": 4084.25
+      "realized_pnl": 4812.0
     }
   ],
   "signals_log": [
