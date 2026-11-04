@@ -44,8 +44,10 @@ class TestStrategyEngine(unittest.TestCase):
 
     def test_bullish_signal_generation(self):
         dates = pd.date_range("2026-11-04 09:15", periods=30, freq="5min")
-        # Steady uptrend after flat
-        prices = [24000] * 10 + [24000 + (i * 12) for i in range(20)]
+        # Downtrend followed by sharp bounce causing bullish EMA crossover
+        p1 = [24200 - i * 10 for i in range(20)]
+        p2 = [p1[-1] + (i * 18) for i in range(1, 11)]
+        prices = p1 + p2
         df = pd.DataFrame({
             "timestamp": dates,
             "open": prices,
@@ -65,8 +67,10 @@ class TestStrategyEngine(unittest.TestCase):
 
     def test_bearish_signal_generation(self):
         dates = pd.date_range("2026-11-04 09:15", periods=30, freq="5min")
-        # Steady downtrend after flat
-        prices = [24000] * 10 + [24000 - (i * 12) for i in range(20)]
+        # Uptrend followed by sharp drop causing bearish EMA crossover
+        p1 = [24000 + i * 10 for i in range(20)]
+        p2 = [p1[-1] - (i * 18) for i in range(1, 11)]
+        prices = p1 + p2
         df = pd.DataFrame({
             "timestamp": dates,
             "open": prices,
